@@ -1,6 +1,8 @@
 package main
 
 import (
+	"github.com/XzavierLuo/mahjong/internal/router/domin"
+	"github.com/XzavierLuo/mahjong/internal/router/user"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
@@ -36,6 +38,12 @@ func Gin() {
 			"error": "page not found",
 		})
 	})
+
+	r.Use(domin.Cors())
+	v1 := r.Group("/api/v1")
+	{
+		v1.POST("/user/login", user.Login())
+	}
 
 	if err := r.Run(cfg.WebConfig.IP + strconv.Itoa(cfg.WebConfig.Port)); err != nil {
 		log.Error("run http error, error:", err)
