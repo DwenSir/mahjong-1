@@ -1,19 +1,26 @@
 {
-  "log_config": {
-    "count": 2,
-    "level": "info",
-    "uint": "MB",
-    "roll_type": "RollingFile",
-    "file": "mahjong.log",
-    "dir": "/opt/log",
-    "size": 20,
-    "compress": 1
-  },
-  "db": {
-    "username": "xll",
-    "host": "120.76.100.14",
-    "password": "Xiao2019",
-    "port": 3306,
-    "database": "mahjong"
-  }
+    "log_config": {
+        "count": 2,
+        "level": "info",
+        "unit": "MB",
+        "roll_type": "RollingFile",
+        "file": "mahjong.log",
+        "dir": "/opt/log",
+        "size": 20,
+        "compress": 1
+    },
+    "db_config": {
+        "username": "xll",
+        "host": "120.76.100.14",
+        "password": "Xiao2019",
+        "port": 3306,
+        "database": "mahjong"
+    },
+    "web_config": {
+        "https": false,
+        "ip": "120.76.100.14",
+        "port": 9101,
+        "read_timeout": 300,
+        "write_timeout": 300
+    }
 }

@@ -5,21 +5,21 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"mahjong/config"
 	"os"
 	"runtime/debug"
 	"xlib/log"
+
+	"github.com/XzavierLuo/mahjong/config"
 )
 
 var (
-	help bool
+	help       bool
 	configFile string
-	pidFile string
-
-	cfg *config.Config
+	pidFile    string
+	cfg        *config.Config
 )
 
-func parseFlag(){
+func parseFlag() {
 	flag.StringVar(&configFile, "svrConfFile", "config/config.json", "config file")
 	flag.StringVar(&pidFile, "pidFile", "/tmp/mahjong.pid", "pid file")
 	flag.BoolVar(&help, "version", false, "help")
@@ -36,8 +36,8 @@ func writePid() {
 	f.WriteString(fmt.Sprintf("%d\n", pid))
 }
 
-func InitLog(){
-	err := log.SetLogger()
+func InitLog() {
+	err := log.SetLogger(cfg.LogConfig.RollType, cfg.LogConfig.Dir, cfg.LogConfig.File, cfg.LogConfig.Count, cfg.LogConfig.Size, cfg.LogConfig.Unit, cfg.LogConfig.Level, cfg.LogConfig.Compress)
 	if err != nil {
 		panic(fmt.Sprintf("init log config failed,err: %s", err.Error()))
 	}
