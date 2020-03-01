@@ -1,0 +1,19 @@
+{
+  "log_config": {
+    "count": 2,
+    "level": "info",
+    "uint": "MB",
+    "roll_type": "RollingFile",
+    "file": "mahjong.log",
+    "dir": "/opt/log",
+    "size": 20,
+    "compress": 1
+  },
+  "db": {
+    "username": "xll",
+    "host": "120.76.100.14",
+    "password": "Xiao2019",
+    "port": 3306,
+    "database": "mahjong"
+  }
+}
