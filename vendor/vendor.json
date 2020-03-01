@@ -1,0 +1,12 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "LIzaxoY0yTThqE8z9g+umjeFgWw=",
+			"path": "xlib/log",
+			"revision": ""
+		}
+	],
+	"rootPath": "github.com/XzavierLuo/mahjong"
+}
