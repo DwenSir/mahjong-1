@@ -1,4 +1,4 @@
-package config
+package main
 
 type Config struct {
 	LogConfig Log `json:"log_config"`

@@ -8,15 +8,13 @@ import (
 	"os"
 	"runtime/debug"
 	"xlib/log"
-
-	"github.com/XzavierLuo/mahjong/config"
 )
 
 var (
 	help       bool
 	configFile string
 	pidFile    string
-	cfg        *config.Config
+	cfg        *Config
 )
 
 func parseFlag() {
@@ -44,7 +42,7 @@ func InitLog() {
 	go log.HandleSignalChangeLogLevel()
 }
 
-func getConfig(exit bool) *config.Config {
+func getConfig(exit bool) *Config {
 	bs, err := ioutil.ReadFile(configFile)
 	if err != nil {
 		log.Errorf("can't load config file. the path is %s. %s", configFile, err)
@@ -54,7 +52,7 @@ func getConfig(exit bool) *config.Config {
 			return nil
 		}
 	}
-	cfg := &config.Config{}
+	cfg := &Config{}
 	err = json.Unmarshal(bs, cfg)
 	if err != nil {
 		if exit {

@@ -36,7 +36,8 @@ func Gin() {
 			"error": "page not found",
 		})
 	})
-	if err := r.Run(cfg.Web.IP + strconv.Itoa(cfg.Web.Port)); err != nil {
+
+	if err := r.Run(cfg.WebConfig.IP + strconv.Itoa(cfg.WebConfig.Port)); err != nil {
 		log.Error("run http error, error:", err)
 		return
 	}
